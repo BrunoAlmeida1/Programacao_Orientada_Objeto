@@ -1,3 +1,7 @@
+/*Programa que simula um humano no que tange o seu crescimento f√≠sico, seu envelhecimento,
+aumento de peso e alimenta√ß√£o.
+ */
+
 package HumanoVirtual;
 
 import java.math.BigDecimal;
@@ -9,7 +13,7 @@ public class Application {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("\n==== HUMANO VIRTUAL ====\n");
-        System.out.println("Preencha as informaÁıes abaixo\n");
+        System.out.println("Preencha as informa√ß√µes abaixo\n");
 
         System.out.print("Nome: ");
         String nome = sc.nextLine();
@@ -26,13 +30,13 @@ public class Application {
 
         char opcao;
         do {
-            System.out.println("\n\nDeseja mudar algum aspecto do seu humano? S = sim / N = n„o");
+            System.out.println("\n\nDeseja mudar algum aspecto do seu humano? S = sim / N = n√£o");
             opcao = sc.next().charAt(0);
 
             if(Character.compare(opcao, 's') == 0 || Character.compare(opcao, 'S') == 0 ){
-                System.out.println("\nEscolha uma das opÁıes\n" +
+                System.out.println("\nEscolha uma das op√ß√µes\n" +
                         "1 - Alterar a idade\n2 - Alterar a altura\n3 - Alterar o peso\n0 - Sair" +
-                        "\nDigite o n˙mero da opÁ„o desejada >>> ");
+                        "\nDigite o n√∫mero da op√ß√£o desejada >>> ");
                 int opcao2 = sc.nextInt();
 
                 switch (opcao2){
@@ -49,7 +53,7 @@ public class Application {
                         opcao = 'n';
                         break;
                     default:
-                        System.err.println("\nOpÁ„o Inv·lida!\n");
+                        System.err.println("\nOp√ß√£o Inv√°lida!\n");
 
                 }
             }
