@@ -19,7 +19,10 @@ public class Pessoa {
         this.altura = altura;
         this.peso = peso;
     }
-
+    /* No met√≥do envelhecer, quando aumentamos a idade, o humano virtual aumenta a estatura at√© os 21 anos,
+    sendo que, se ele tiver menos de 11 anos, at√© os 11 ele aumenta 2,5 cm por ano, e acima de 11 at√© os 21 ele
+    aumenta 4 cm ao ano.
+     */
     protected void envelhecer() {
         Scanner sc = new Scanner(System.in);
         BigDecimal anosAte21;
@@ -79,7 +82,9 @@ public class Pessoa {
             idade = novaIdade;
         }
     }
-
+    /* No m√©todo crescer, ao passo que alteramos a altura para mais, o nosso humano virtual ganha peso,
+    e quando diminuimos sua altura, ele perde peso.
+     */
     protected void crescer(boolean cresceu, BigDecimal novaAltura) {
         Scanner sc = new Scanner(System.in);
 
@@ -106,21 +111,24 @@ public class Pessoa {
             altura = novaAltura;
         }
     }
+    /* No m√©todo alterar peso √© calculada a taxa metab√≥lica basal e avaliamos o ganho ou perda di√°ria de peso
+    baseado na quantidade de calorias digeridas por dia.
+     */
     protected void alterarPeso() {
         Scanner sc = new Scanner(System.in);
         BigDecimal taxaMetabolismo = null;
         boolean notdefault = true;
 
-        System.out.println("Qual a ingest„o di·ria de calorias da pessoa? ");
+        System.out.println("Qual a ingest√£o di√°ria de calorias da pessoa? ");
         BigDecimal calorias = BigDecimal.valueOf(sc.nextInt());
 
         System.out.println("\nQual a taxa de atividade da pessoa? \n" +
-                "1 - Sedent·rio (pouco ou nenhum exercÌcio)\n" +
-                "2 - Levemente ativo (exercÌcio leve de 1 a 3 dias por semana)\n" +
-                "3 - Moderadamente ativo (exercÌcio moderado de 3 a 5 dias por semana\n" +
-                "4 - Altamente ativo (exercÌcio pesado de 5 a 6 dias por semana\n" +
-                "5 - Extremamente ativo (exercÌcio pesado di·rio e atÈ 2 vezes ao dia\n" +
-                "\n\nDIGITE O N⁄MERO CORRESPONDENTE A ATIVIDADE >>>");
+                "1 - Sedent√°rio (pouco ou nenhum exerc√≠cio)\n" +
+                "2 - Levemente ativo (exerc√≠cio leve de 1 a 3 dias por semana)\n" +
+                "3 - Moderadamente ativo (exerc√≠cio moderado de 3 a 5 dias por semana\n" +
+                "4 - Altamente ativo (exerc√≠cio pesado de 5 a 6 dias por semana\n" +
+                "5 - Extremamente ativo (exerc√≠cio pesado di√°rio e at√© 2 vezes ao dia\n" +
+                "\n\nDIGITE O N√öMERO CORRESPONDENTE A ATIVIDADE >>>");
         int opcao = sc.nextInt();
 
         switch (opcao) {
@@ -136,7 +144,7 @@ public class Pessoa {
                             .add(BigDecimal.valueOf(655));
                     taxaMetabolismo = taxaMetabolismo.multiply(BigDecimal.valueOf(1.2));
                 }else{
-                    System.err.println("Caracter Inv·lido!");
+                    System.err.println("Caracter Inv√°lido!");
                     notdefault = false;
                 }
                 break;
@@ -152,7 +160,7 @@ public class Pessoa {
                             .add(BigDecimal.valueOf(655));
                     taxaMetabolismo = taxaMetabolismo.multiply(BigDecimal.valueOf(1.375));
                 }else{
-                    System.err.println("Caracter Inv·lido!");
+                    System.err.println("Caracter Inv√°lido!");
                     notdefault = false;
                 }
                 break;
@@ -168,7 +176,7 @@ public class Pessoa {
                             .add(BigDecimal.valueOf(655));
                     taxaMetabolismo = taxaMetabolismo.multiply(BigDecimal.valueOf(1.55));
                 }else{
-                    System.err.println("Caracter Inv·lido!");
+                    System.err.println("Caracter Inv√°lido!");
                     notdefault = false;
                 }
                 break;
@@ -184,7 +192,7 @@ public class Pessoa {
                             .add(BigDecimal.valueOf(655));
                     taxaMetabolismo = taxaMetabolismo.multiply(BigDecimal.valueOf(1.725));
                 }else{
-                    System.err.println("Caracter Inv·lido!");
+                    System.err.println("Caracter Inv√°lido!");
                     notdefault = false;
                 }
                 break;
@@ -200,16 +208,16 @@ public class Pessoa {
                             .add(BigDecimal.valueOf(655));
                     taxaMetabolismo = taxaMetabolismo.multiply(BigDecimal.valueOf(1.9));
                 }else{
-                    System.err.println("Caracter Inv·lido!");
+                    System.err.println("Caracter Inv√°lido!");
                     notdefault = false;
                 }
                 break;
             default:
-                System.err.println("\nOpÁ„o Inv·lida!\n");
+                System.err.println("\nOp√ß√£o Inv√°lida!\n");
                 notdefault = false;
 
         }
-        System.out.println("\nTaxa MetabÛlica Basal: "+taxaMetabolismo);
+        System.out.println("\nTaxa Metab√≥lica Basal: "+taxaMetabolismo);
         if(notdefault) {
             peso = peso.add(((calorias.subtract(taxaMetabolismo)))
                     .divide(BigDecimal.valueOf(9000), 2, RoundingMode.HALF_UP));
